@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import { Download, ChevronRight, Star, Code, Database, Globe, Shield, Calendar, User, Phone, MapPin, BookOpen, CheckCircle, Map, Laptop, Laptop2, Bot, BotIcon, BrainCircuit, Layout, Facebook, Instagram, Linkedin, Youtube, Twitter } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './index.css';
+import HeroSection from './components/HeroSection';
+import AboutSection from './components/AboutSection';
+import VideoSection from './components/VideoSection';
+import LocationSection from './components/LocationSection';
 
 // --- GOOGLE SHEET CONFIGURATION ---
 // 1. Create a Google Sheet and use the script from google_sheet_setup.md
@@ -200,81 +204,14 @@ function App() {
 
       <main className="main-content">
 
-        {/* Hero Section */}
-        <section className="hero-section">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, type: "spring" }}
-            className="hero-content"
-          >
-            <div className="badge animate-bounce-slow">
-              {t.heroBadge}
-            </div>
-            <h1 className="hero-title">
-              {t.heroTitle} <br />
-              <span className="text-highlight">
-                {t.heroTitleHighlight}
-              </span>
-            </h1>
-            <p className="hero-subtitle">
-              {t.heroSubtitle}
-            </p>
+        <HeroSection
+          t={t}
+          onCtaClick={() => document.getElementById('register').scrollIntoView({ behavior: 'smooth' })}
+        />
 
-            <div className="hero-actions">
-              <button onClick={() => document.getElementById('register').scrollIntoView({ behavior: 'smooth' })} className="btn-primary push-effect">
-                {t.cta}
-              </button>
-            </div>
-          </motion.div>
-        </section>
+        <AboutSection t={t} />
 
-        {/* About Section */}
-        <section className="about-section">
-          <div className="section-header">
-            <CheckCircle className="icon-star" size={32} />
-            <h2>{t.aboutTitle}</h2>
-          </div>
-          <div className="about-grid">
-            <div className="about-visual">
-              <img src="/student_mascot.png" alt="Student Mascot" className="about-img" />
-            </div>
-            <div className="about-content">
-              <p>{t.aboutText1}</p>
-              <p>{t.aboutText2}</p>
-            </div>
-          </div>
-        </section>
-
-        {/* Video Marquee Section */}
-        {/* Video Marquee Section */}
-        <section className="video-section">
-          <div className="section-header">
-            <Laptop size={32} className="icon-star" />
-            <h2>{isRTL ? "الحياة في B-Coders" : "Life at B-Coders"}</h2>
-          </div>
-
-          <div className="marquee-container" dir="ltr">
-            <div className="marquee-track">
-              {/* YOUTUBE SHORTS CONFIGURATION */}
-              {[...Array(5)].map(() => [
-                "B7_zjRKEC_w",
-                "7t1oGld7yg8",
-                "EfzmvUv5CJE"
-              ]).flat().map((id, index) => (
-                <div key={index} className="video-card">
-                  <iframe
-                    src={`https://www.youtube.com/embed/${id}?autoplay=1&loop=1&playlist=${id}&controls=0&rel=0&modestbranding=1&playsinline=1&mute=1&disablekb=1&iv_load_policy=3`}
-                    className="marquee-video"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    title="Student Video"
-                    frameBorder="0"
-                  ></iframe>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section>
+        <VideoSection isRTL={isRTL} />
 
         {/* Courses Cards */}
         <section id="courses" className="courses-section">
@@ -326,25 +263,7 @@ function App() {
           </motion.div>
         </section>
 
-        {/* Location Section */}
-        <section className="location-section">
-          <div className="section-header">
-            <Map className="icon-star" size={32} />
-            <h2>{t.locationTitle}</h2>
-          </div>
-          <div className="map-container">
-            <iframe
-              title="Location"
-              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3412.1598317423845!2d29.958053075599448!3d31.216300974354553!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzHCsDEyJzU4LjciTiAyOcKwNTcnMzguMyJF!5e0!3m2!1sen!2seg!4v1767742691924!5m2!1sen!2seg"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
-          </div>
-        </section>
+        <LocationSection title={t.locationTitle} />
 
         {/* Registration Form */}
         <section id="register" className="form-section">
@@ -491,18 +410,16 @@ function App() {
 
       <footer className="main-footer">
         <div className="social-links">
-          <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Facebook">
+          <a href="https://www.facebook.com/share/18BmEuwDqg/" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Facebook">
             <Facebook size={24} />
           </a>
-          <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Instagram">
+          <a href="https://www.instagram.com/bstudy.coders?igsh=YjBseTdraXZnbGtp" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="Instagram">
             <Instagram size={24} />
           </a>
-          <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="LinkedIn">
+          <a href="https://www.linkedin.com/company/b-study/" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="LinkedIn">
             <Linkedin size={24} />
           </a>
-          <a href="https://youtube.com" target="_blank" rel="noopener noreferrer" className="social-icon" aria-label="YouTube">
-            <Youtube size={24} />
-          </a>
+
         </div>
         <p>{t.footer}</p>
       </footer>
