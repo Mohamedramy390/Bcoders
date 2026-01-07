@@ -12,9 +12,12 @@ const VideoSection = memo(({ isRTL }) => {
             <div className="marquee-container" dir="ltr">
                 <div className="marquee-track">
                     {[...Array(5)].map(() => [
-                        "B7_zjRKEC_w",
-                        "7t1oGld7yg8",
-                        "EfzmvUv5CJE"
+                        "yEKtWi9l7cQ", // New
+                        "B7_zjRKEC_w", // Robot
+                        "SquHklvhx-M", // Classroom
+                        "blA6QItUClM", // Activities
+                        "7t1oGld7yg8", // Old 1
+                        "EfzmvUv5CJE"  // Old 2
                     ]).flat().map((id, index) => (
                         <div key={index} className="video-card">
                             <iframe
