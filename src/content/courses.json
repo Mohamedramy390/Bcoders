@@ -1,0 +1,40 @@
+{
+    "courses": [
+        {
+            "id": 1,
+            "title": "Junior Discoveries Diploma",
+            "titleAr": "دبلومة المكتشف الصغير",
+            "description": "Start your digital journey! Learn computer basics, digital art with Paint, and your first coding steps with Scratch.",
+            "descriptionAr": "ابدأ رحلتك الرقمية! تعلم أساسيات الكمبيوتر، والرسم الرقمي، وأولى خطوات البرمجة باستخدام سكراتش.",
+            "iconName": "Laptop2",
+            "link": "/curricula/Junior Discoveries Diploma-1.pdf"
+        },
+        {
+            "id": 2,
+            "title": "AI For Kids Diploma",
+            "titleAr": "دبلومة الذكاء الاصطناعي للأطفال",
+            "description": "Create games and learn AI! Build interactive stories with PictoBlox and train models to recognize images and voices.",
+            "descriptionAr": "اصنع الألعاب وتعلم الذكاء الاصطناعي! صمم قصصاً تفاعلية مع PictoBlox ودرب نماذج لتمييز الصور والأصوات.",
+            "iconName": "BotIcon",
+            "link": "/curricula/AI for kids diploma-2.pdf"
+        },
+        {
+            "id": 3,
+            "title": "Python AI Diploma",
+            "titleAr": "دبلومة بايثون والذكاء الاصطناعي",
+            "description": "Master Python programming! From basics to advanced AI, learn to train computers to play games and solve problems.",
+            "descriptionAr": "احترف لغة بايثون! من الأساسيات إلى الذكاء الاصطناعي المتقدم، تعلم كيف تدرب الكمبيوتر على لعب الألعاب وحل المشكلات.",
+            "iconName": "BrainCircuit",
+            "link": "/curricula/Python AI diploma.pdf"
+        },
+        {
+            "id": 4,
+            "title": "Front End Web Diploma",
+            "titleAr": "دبلومة تصميم واجهات الويب",
+            "description": "Design professional websites! Master HTML, CSS, JavaScript, and ReactJS to build stunning, interactive web applications.",
+            "descriptionAr": "صمم مواقع احترافية! اتقن HTML و CSS و JavaScript و ReactJS لبناء تطبيقات ويب تفاعلية ومذهلة.",
+            "iconName": "Layout",
+            "link": "/curricula/Web design diploma-3.pdf"
+        }
+    ]
+}

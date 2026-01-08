@@ -1,0 +1,67 @@
+backend:
+  name: git-gateway
+  branch: main # Branch to update (change to 'master' if your generic branch is master)
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "content"
+    label: "Site Content"
+    files:
+      - name: "ui"
+        label: "UI Text (Translation)"
+        file: "src/content/ui.json"
+        
+        fields:
+          - { name: "en", label: "English", widget: "object", fields: [
+              { name: "heroBadge", label: "Hero Badge", widget: "string" },
+              { name: "heroTitle", label: "Hero Title", widget: "string" },
+              { name: "heroTitleHighlight", label: "Hero Title Highlight", widget: "string" },
+              { name: "heroSubtitle", label: "Hero Subtitle", widget: "text" },
+              { name: "cta", label: "Call to Action", widget: "string" },
+              { name: "coursesTitle", label: "Courses Section Title", widget: "string" },
+              { name: "aboutTitle", label: "About Title", widget: "string" },
+              { name: "aboutText1", label: "About Text Part 1", widget: "text" },
+              { name: "aboutText2", label: "About Text Part 2", widget: "text" },
+              { name: "locationTitle", label: "Location Title", widget: "string" },
+              { name: "formTitle", label: "Form Title", widget: "string" },
+              { name: "formSubtitle", label: "Form Subtitle", widget: "string" },
+              { name: "footer", label: "Footer Text", widget: "string" }
+            ]
+          }
+          - { name: "ar", label: "Arabic", widget: "object", fields: [
+              { name: "heroBadge", label: "Hero Badge", widget: "string" },
+              { name: "heroTitle", label: "Hero Title", widget: "string" },
+              { name: "heroTitleHighlight", label: "Hero Title Highlight", widget: "string" },
+              { name: "heroSubtitle", label: "Hero Subtitle", widget: "text" },
+              { name: "cta", label: "Call to Action", widget: "string" },
+              { name: "coursesTitle", label: "Courses Section Title", widget: "string" },
+              { name: "aboutTitle", label: "About Title", widget: "string" },
+              { name: "aboutText1", label: "About Text Part 1", widget: "text" },
+              { name: "aboutText2", label: "About Text Part 2", widget: "text" },
+              { name: "locationTitle", label: "Location Title", widget: "string" },
+              { name: "formTitle", label: "Form Title", widget: "string" },
+              { name: "formSubtitle", label: "Form Subtitle", widget: "string" },
+              { name: "footer", label: "Footer Text", widget: "string" }
+            ]
+          }
+
+  - name: "courses"
+    label: "Courses"
+    files:
+      - name: "course_list"
+        label: "Courses List"
+        file: "src/content/courses.json"
+        fields:
+          - name: "courses"
+            label: "Courses"
+            widget: "list"
+            fields:
+              - { name: "id", label: "ID (Unique Number)", widget: "number" }
+              - { name: "title", label: "Title (English)", widget: "string" }
+              - { name: "titleAr", label: "Title (Arabic)", widget: "string" }
+              - { name: "description", label: "Description (English)", widget: "text" }
+              - { name: "descriptionAr", label: "Description (Arabic)", widget: "text" }
+              - { name: "iconName", label: "Icon Name", widget: "select", options: ["Laptop2", "BotIcon", "BrainCircuit", "Layout", "Code", "Database", "Globe", "Shield"] }
+              - { name: "link", label: "Curriculum Link (PDF)", widget: "string" }

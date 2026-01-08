@@ -7,106 +7,28 @@ import AboutSection from './components/AboutSection';
 import VideoSection from './components/VideoSection';
 import LocationSection from './components/LocationSection';
 
+import uiContent from './content/ui.json';
+import coursesData from './content/courses.json';
+
 // --- GOOGLE SHEET CONFIGURATION ---
 // 1. Create a Google Sheet and use the script from google_sheet_setup.md
 // 2. Paste your Web App URL below:
 const SHEET_API_URL = "https://script.google.com/macros/s/AKfycbyYUD24m37SNWfEqDdZA25V6NSZo-i8-LTE4d5Q5Slfd87BLjDa8zeEoMe8fSF6Y2lv/exec";
 
-const courses = [
-  {
-    id: 1,
-    title: "Junior Discoveries Diploma",
-    titleAr: "دبلومة المكتشف الصغير",
-    description: "Start your digital journey! Learn computer basics, digital art with Paint, and your first coding steps with Scratch.",
-    descriptionAr: "ابدأ رحلتك الرقمية! تعلم أساسيات الكمبيوتر، والرسم الرقمي، وأولى خطوات البرمجة باستخدام سكراتش.",
-    icon: <Laptop2 size={40} className="icon-primary" />,
-    link: "/curricula/Junior Discoveries Diploma-1.pdf"
-  },
-  {
-    id: 2,
-    title: "AI For Kids Diploma",
-    titleAr: "دبلومة الذكاء الاصطناعي للأطفال",
-    description: "Create games and learn AI! Build interactive stories with PictoBlox and train models to recognize images and voices.",
-    descriptionAr: "اصنع الألعاب وتعلم الذكاء الاصطناعي! صمم قصصاً تفاعلية مع PictoBlox ودرب نماذج لتمييز الصور والأصوات.",
-    icon: <BotIcon size={40} className="icon-secondary" />,
-    link: "/curricula/AI for kids diploma-2.pdf"
-  },
-  {
-    id: 3,
-    title: "Python AI Diploma",
-    titleAr: "دبلومة بايثون والذكاء الاصطناعي",
-    description: "Master Python programming! From basics to advanced AI, learn to train computers to play games and solve problems.",
-    descriptionAr: "احترف لغة بايثون! من الأساسيات إلى الذكاء الاصطناعي المتقدم، تعلم كيف تدرب الكمبيوتر على لعب الألعاب وحل المشكلات.",
-    icon: <BrainCircuit size={40} className="icon-accent" />,
-    link: "/curricula/Python AI diploma.pdf"
-  },
-  {
-    id: 4,
-    title: "Front End Web Diploma",
-    titleAr: "دبلومة تصميم واجهات الويب",
-    description: "Design professional websites! Master HTML, CSS, JavaScript, and ReactJS to build stunning, interactive web applications.",
-    descriptionAr: "صمم مواقع احترافية! اتقن HTML و CSS و JavaScript و ReactJS لبناء تطبيقات ويب تفاعلية ومذهلة.",
-    icon: <Layout size={40} className="icon-primary" />,
-    link: "/curricula/Web design diploma-3.pdf"
-  }
-];
-
-const content = {
-  en: {
-    heroBadge: "🚀 Super Powers for Kids",
-    heroTitle: "Unleash Your Inner",
-    heroTitleHighlight: "Coding Hero",
-    heroSubtitle: "Join B-Coders Academy and learn to build games, websites, and robots. The future is yours to create!",
-    cta: "Start Your Adventure",
-    coursesTitle: "Choose Your Mission",
-    download: "Curriculum",
-    formTitle: "Join the Squad",
-    formSubtitle: "Fill out this form to reserve your spot!",
-    nameLabel: "Student Name",
-    dobLabel: "Birthday",
-    fatherPhoneLabel: "Father's Phone",
-    motherPhoneLabel: "Mother's Phone",
-    modeLabel: "Course Mode",
-    courseLabel: "Select Mission (Course)",
-    modeOnline: "Online 🌐",
-    modeOnsite: "Onsite 🏫",
-    submit: "Register Now",
-    footer: "© 2024 B-Coders. Building the future, one line of code at a time.",
-    contact: "Contact Us",
-    formSuccess: "Awesome! You're on the list. 🚀",
-    aboutTitle: "Who We Are",
-    aboutText1: "B-Coders is an academy dedicated to empowering the next generation of technology leaders. We believe that coding is not just about typing lines of text; it's about creativity, problem-solving, and building the future.",
-    aboutText2: "Our courses are designed specifically for kids and teens, making complex concepts fun and easy to understand. With expert mentors and hands-on projects, we turn passive consumers of technology into active creators.",
-    locationTitle: "Our Base of Operations",
-  },
-  ar: {
-    heroBadge: "🚀 قوى خارقة للأطفال",
-    heroTitle: "أطلق العنان لقدراتك",
-    heroTitleHighlight: "كـبطل برمجة",
-    heroSubtitle: "انضم إلى أكاديمية B-Coders وتعلم بناء الألعاب والمواقع والروبوتات. المستقبل بانتظارك لتبدعه!",
-    cta: "ابدأ مغامرتك",
-    coursesTitle: "اختر مهمتك",
-    download: "المنهج الدراسي",
-    formTitle: "انضم إلى الفريق",
-    formSubtitle: "املأ هذا النموذج لحجز مكانك!",
-    nameLabel: "اسم الطالب",
-    dobLabel: "تاريخ الميلاد",
-    fatherPhoneLabel: "رقم هاتف الأب",
-    motherPhoneLabel: "رقم هاتف الأم",
-    modeLabel: "نظام الدورة",
-    courseLabel: "اختر المهمة (الدورة)",
-    modeOnline: "أونلاين 🌐",
-    modeOnsite: "في المقر 🏫",
-    submit: "سجل الآن",
-    footer: "© 2024 B-Coders. نبني المستقبل، بسطر كود كل مرة.",
-    contact: "تواصل معنا",
-    formSuccess: "رائع! تم تسجيلك في القائمة. 🚀",
-    aboutTitle: "من نحن",
-    aboutText1: "بي-كودرز هي أكاديمية مكرسة لتمكين الجيل القادم من قادة التكنولوجيا. نحن نؤمن بأن البرمجة ليست مجرد كتابة أسطر من النصوص؛ إنها تتعلق بالإبداع وحل المشكلات وبناء المستقبل.",
-    aboutText2: "تم تصميم دوراتنا خصيصًا للأطفال والمراهقين، مما يجعل المفاهيم المعقدة ممتعة وسهلة الفهم. مع موجهين خبراء ومشاريع عملية، نحول مستخدمي التكنولوجيا إلى مبدعين حقيقيين.",
-    locationTitle: "مقر عملياتنا",
-  }
+// Icon Mapping
+const iconMap = {
+  Laptop2: <Laptop2 size={40} className="icon-primary" />,
+  BotIcon: <BotIcon size={40} className="icon-secondary" />,
+  BrainCircuit: <BrainCircuit size={40} className="icon-accent" />,
+  Layout: <Layout size={40} className="icon-primary" />,
+  Code: <Code size={40} className="icon-primary" />,
+  Database: <Database size={40} className="icon-accent" />,
+  Globe: <Globe size={40} className="icon-secondary" />,
+  Shield: <Shield size={40} className="icon-primary" />
 };
+
+const courses = coursesData.courses;
+const content = uiContent;
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -240,7 +162,7 @@ function App() {
                 whileHover={{ y: -10 }}
               >
                 <div className="card-icon-wrapper">
-                  {course.icon}
+                  {iconMap[course.iconName] || <Code size={40} />}
                 </div>
 
                 <h3>{isRTL ? course.titleAr : course.title}</h3>
