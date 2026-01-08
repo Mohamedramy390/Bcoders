@@ -65,3 +65,17 @@ collections:
               - { name: "descriptionAr", label: "Description (Arabic)", widget: "text" }
               - { name: "iconName", label: "Icon Name", widget: "select", options: ["Laptop2", "BotIcon", "BrainCircuit", "Layout", "Code", "Database", "Globe", "Shield"] }
               - { name: "link", label: "Curriculum Link (PDF)", widget: "string" }
+
+  - name: "videos"
+    label: "Videos Manager"
+    files:
+      - name: "video_list"
+        label: "YouTube Shorts List"
+        file: "src/content/videos.json"
+        fields:
+          - name: "videos"
+            label: "Videos"
+            widget: "list"
+            fields:
+              - { name: "id", label: "YouTube Video ID (e.g. yEKtWi9l7cQ)", widget: "string" }
+              - { name: "title", label: "Description (Internal Use)", widget: "string" }
