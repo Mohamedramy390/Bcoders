@@ -77,5 +77,5 @@ collections:
             label: "Videos"
             widget: "list"
             fields:
-              - { name: "id", label: "YouTube Video ID (e.g. yEKtWi9l7cQ)", widget: "string" }
+              - { name: "id", label: "YouTube Video URL (e.g. https://youtube.com/shorts/...)", widget: "string" }
               - { name: "title", label: "Description (Internal Use)", widget: "string" }
